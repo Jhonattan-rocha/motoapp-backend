@@ -3,7 +3,7 @@ from typing import List, Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.models.fileModel import File
-from app.schemas import FileBase
+from app.schemas.fileSchema import FileBase
 from app.utils import apply_filters_dynamic
 import os
 

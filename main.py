@@ -13,7 +13,7 @@ from app.routers.tokenRouter import router as tokenRouter
 from app.routers.fileRouter import router as fileRouter
 from app.routers.logRouter import router as logRouter
 from app.routers.eventsRouter import router as eventsRouter
-from app.routers.carsRouter import router as tasksRouter
+from app.routers.carsRouter import router as carsRouter
 
 @asynccontextmanager
 async def lifespan_startup(app: FastAPI):
@@ -24,7 +24,7 @@ async def lifespan_startup(app: FastAPI):
     app.include_router(fileRouter)
     app.include_router(logRouter)
     app.include_router(eventsRouter)
-    app.include_router(tasksRouter)
+    app.include_router(carsRouter)
     generate_doc()
     async with database.engine.begin() as conn:
         await conn.run_sync(database.Base.metadata.create_all)

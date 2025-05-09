@@ -2,7 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import joinedload
 from app.models.userProfileModel import UserProfile
-from app.schemas import UserProfileCreate, UserProfileBase
+from app.schemas.userProfileSchema import UserProfileCreate, UserProfileBase
 from app.utils import apply_filters_dynamic
 
 

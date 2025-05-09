@@ -17,303 +17,6 @@
         "version": "0.0.1"
     },
     "paths": {
-        "/crud/generic": {
-            "post": {
-                "summary": "Generic Create",
-                "operationId": "generic_create_crud_generic_post",
-                "security": [
-                    {
-                        "OAuth2PasswordBearer": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "model",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "",
-                            "title": "Model"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/GenericCreate"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericCreate"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "get": {
-                "summary": "Generic Reads",
-                "operationId": "generic_reads_crud_generic_get",
-                "security": [
-                    {
-                        "OAuth2PasswordBearer": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "skip",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 0,
-                            "title": "Skip"
-                        }
-                    },
-                    {
-                        "name": "limit",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 10,
-                            "title": "Limit"
-                        }
-                    },
-                    {
-                        "name": "model",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "",
-                            "title": "Model"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "title": "Filters"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/GenericCreate"
-                                    },
-                                    "title": "Response Generic Reads Crud Generic Get"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/crud/generic/{generic_id}": {
-            "get": {
-                "summary": "Generic Read",
-                "operationId": "generic_read_crud_generic__generic_id__get",
-                "security": [
-                    {
-                        "OAuth2PasswordBearer": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "generic_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Generic Id"
-                        }
-                    },
-                    {
-                        "name": "model",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "default": "",
-                            "title": "Model"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericCreate"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "put": {
-                "summary": "Generic Update",
-                "operationId": "generic_update_crud_generic__generic_id__put",
-                "security": [
-                    {
-                        "OAuth2PasswordBearer": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "generic_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Generic Id"
-                        }
-                    },
-                    {
-                        "name": "model",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "title": "Model"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/GenericCreate"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericCreate"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Generic Delete",
-                "operationId": "generic_delete_crud_generic__generic_id__delete",
-                "security": [
-                    {
-                        "OAuth2PasswordBearer": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "generic_id",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "title": "Generic Id"
-                        }
-                    },
-                    {
-                        "name": "model",
-                        "in": "query",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "title": "Model"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericCreate"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HTTPValidationError"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/crud/user/": {
             "post": {
                 "summary": "Create User",
@@ -1668,10 +1371,10 @@
                 }
             }
         },
-        "/crud/task/": {
+        "/crud/car/": {
             "post": {
-                "summary": "Create Task",
-                "operationId": "create_task_crud_task__post",
+                "summary": "Create Car",
+                "operationId": "create_car_crud_car__post",
                 "security": [
                     {
                         "OAuth2PasswordBearer": []
@@ -1682,7 +1385,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TaskBase"
+                                "$ref": "#/components/schemas/CarBase"
                             }
                         }
                     }
@@ -1693,7 +1396,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TaskCreate"
+                                    "$ref": "#/components/schemas/CarCreate"
                                 }
                             }
                         }
@@ -1711,23 +1414,14 @@
                 }
             },
             "get": {
-                "summary": "Read Tasks",
-                "operationId": "read_tasks_crud_task__get",
+                "summary": "Read Cars",
+                "operationId": "read_cars_crud_car__get",
                 "security": [
                     {
                         "OAuth2PasswordBearer": []
                     }
                 ],
                 "parameters": [
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "title": "Filters"
-                        }
-                    },
                     {
                         "name": "skip",
                         "in": "query",
@@ -1757,9 +1451,9 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Task"
+                                        "$ref": "#/components/schemas/Car"
                                     },
-                                    "title": "Response Read Tasks Crud Task  Get"
+                                    "title": "Response Read Cars Crud Car  Get"
                                 }
                             }
                         }
@@ -1777,10 +1471,10 @@
                 }
             }
         },
-        "/crud/task/{task_id}": {
+        "/crud/car/{car_id}": {
             "get": {
-                "summary": "Read Task",
-                "operationId": "read_task_crud_task__task_id__get",
+                "summary": "Read Car",
+                "operationId": "read_car_crud_car__car_id__get",
                 "security": [
                     {
                         "OAuth2PasswordBearer": []
@@ -1788,12 +1482,12 @@
                 ],
                 "parameters": [
                     {
-                        "name": "task_id",
+                        "name": "car_id",
                         "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "title": "Task Id"
+                            "title": "Car Id"
                         }
                     }
                 ],
@@ -1803,7 +1497,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Task"
+                                    "$ref": "#/components/schemas/Car"
                                 }
                             }
                         }
@@ -1821,8 +1515,8 @@
                 }
             },
             "put": {
-                "summary": "Update Task",
-                "operationId": "update_task_crud_task__task_id__put",
+                "summary": "Update Car",
+                "operationId": "update_car_crud_car__car_id__put",
                 "security": [
                     {
                         "OAuth2PasswordBearer": []
@@ -1830,12 +1524,12 @@
                 ],
                 "parameters": [
                     {
-                        "name": "task_id",
+                        "name": "car_id",
                         "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "title": "Task Id"
+                            "title": "Car Id"
                         }
                     }
                 ],
@@ -1844,7 +1538,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TaskCreate"
+                                "$ref": "#/components/schemas/CarCreate"
                             }
                         }
                     }
@@ -1855,7 +1549,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/TaskCreate"
+                                    "$ref": "#/components/schemas/CarCreate"
                                 }
                             }
                         }
@@ -1873,8 +1567,8 @@
                 }
             },
             "delete": {
-                "summary": "Delete Task",
-                "operationId": "delete_task_crud_task__task_id__delete",
+                "summary": "Delete Car",
+                "operationId": "delete_car_crud_car__car_id__delete",
                 "security": [
                     {
                         "OAuth2PasswordBearer": []
@@ -1882,12 +1576,12 @@
                 ],
                 "parameters": [
                     {
-                        "name": "task_id",
+                        "name": "car_id",
                         "in": "path",
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "title": "Task Id"
+                            "title": "Car Id"
                         }
                     }
                 ],
@@ -1936,7 +1630,7 @@
                         "anyOf": [
                             {
                                 "type": "string",
-                                "pattern": "password"
+                                "pattern": "^password$"
                             },
                             {
                                 "type": "null"
@@ -1987,6 +1681,82 @@
                 ],
                 "title": "Body_login_crud_token__post"
             },
+            "Car": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "model": {
+                        "type": "string",
+                        "title": "Model"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "model",
+                    "id",
+                    "created_at",
+                    "updated_at"
+                ],
+                "title": "Car"
+            },
+            "CarBase": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "model": {
+                        "type": "string",
+                        "title": "Model"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "model"
+                ],
+                "title": "CarBase"
+            },
+            "CarCreate": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name"
+                    },
+                    "model": {
+                        "type": "string",
+                        "title": "Model"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "title": "Id"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "model",
+                    "id"
+                ],
+                "title": "CarCreate"
+            },
             "Event": {
                 "properties": {
                     "name": {
@@ -2005,35 +1775,19 @@
                         "type": "integer",
                         "title": "User Id"
                     },
-                    "private": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Private",
-                        "default": false
-                    },
                     "id": {
                         "type": "integer",
                         "title": "Id"
                     },
-                    "tasks": {
+                    "car": {
                         "anyOf": [
                             {
-                                "items": {
-                                    "$ref": "#/components/schemas/Task"
-                                },
-                                "type": "array"
+                                "$ref": "#/components/schemas/Car"
                             },
                             {
                                 "type": "null"
                             }
-                        ],
-                        "title": "Tasks"
+                        ]
                     }
                 },
                 "type": "object",
@@ -2043,7 +1797,7 @@
                     "date",
                     "user_id",
                     "id",
-                    "tasks"
+                    "car"
                 ],
                 "title": "Event"
             },
@@ -2064,18 +1818,6 @@
                     "user_id": {
                         "type": "integer",
                         "title": "User Id"
-                    },
-                    "private": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Private",
-                        "default": false
                     }
                 },
                 "type": "object",
@@ -2104,18 +1846,6 @@
                     "user_id": {
                         "type": "integer",
                         "title": "User Id"
-                    },
-                    "private": {
-                        "anyOf": [
-                            {
-                                "type": "boolean"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ],
-                        "title": "Private",
-                        "default": false
                     },
                     "id": {
                         "type": "integer",
@@ -2198,22 +1928,6 @@
                 ],
                 "title": "FileResponse"
             },
-            "GenericCreate": {
-                "properties": {
-                    "values": {
-                        "type": "object",
-                        "title": "Values",
-                        "default": {}
-                    },
-                    "model": {
-                        "type": "string",
-                        "title": "Model",
-                        "default": ""
-                    }
-                },
-                "type": "object",
-                "title": "GenericCreate"
-            },
             "HTTPValidationError": {
                 "properties": {
                     "detail": {
@@ -2240,7 +1954,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-01-11T19:31:13.564601"
+                        "default": "2025-05-09T18:40:11.264936"
                     },
                     "action": {
                         "type": "string",
@@ -2284,7 +1998,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-01-11T19:31:13.564601"
+                        "default": "2025-05-09T18:40:11.264936"
                     },
                     "action": {
                         "type": "string",
@@ -2312,7 +2026,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-01-11T19:31:13.564601"
+                        "default": "2025-05-09T18:40:11.264936"
                     },
                     "action": {
                         "type": "string",
@@ -2456,115 +2170,6 @@
                 ],
                 "title": "PermissionsCreate"
             },
-            "Task": {
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "title": "Name"
-                    },
-                    "desc": {
-                        "type": "string",
-                        "title": "Desc"
-                    },
-                    "date": {
-                        "type": "string",
-                        "title": "Date"
-                    },
-                    "ready": {
-                        "type": "boolean",
-                        "title": "Ready"
-                    },
-                    "event_id": {
-                        "type": "integer",
-                        "title": "Event Id"
-                    },
-                    "id": {
-                        "type": "integer",
-                        "title": "Id"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "name",
-                    "desc",
-                    "date",
-                    "ready",
-                    "event_id",
-                    "id"
-                ],
-                "title": "Task"
-            },
-            "TaskBase": {
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "title": "Name"
-                    },
-                    "desc": {
-                        "type": "string",
-                        "title": "Desc"
-                    },
-                    "date": {
-                        "type": "string",
-                        "title": "Date"
-                    },
-                    "ready": {
-                        "type": "boolean",
-                        "title": "Ready"
-                    },
-                    "event_id": {
-                        "type": "integer",
-                        "title": "Event Id"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "name",
-                    "desc",
-                    "date",
-                    "ready",
-                    "event_id"
-                ],
-                "title": "TaskBase"
-            },
-            "TaskCreate": {
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "title": "Name"
-                    },
-                    "desc": {
-                        "type": "string",
-                        "title": "Desc"
-                    },
-                    "date": {
-                        "type": "string",
-                        "title": "Date"
-                    },
-                    "ready": {
-                        "type": "boolean",
-                        "title": "Ready"
-                    },
-                    "event_id": {
-                        "type": "integer",
-                        "title": "Event Id"
-                    },
-                    "id": {
-                        "type": "integer",
-                        "title": "Id"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "name",
-                    "desc",
-                    "date",
-                    "ready",
-                    "event_id",
-                    "id"
-                ],
-                "title": "TaskCreate"
-            },
             "Token": {
                 "properties": {
                     "access_token": {
@@ -2576,6 +2181,7 @@
                         "title": "Token Type"
                     },
                     "user": {
+                        "additionalProperties": true,
                         "type": "object",
                         "title": "User"
                     }

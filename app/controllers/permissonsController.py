@@ -2,7 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import joinedload
 from app.models.permissionsModel import Permissions
-from app.schemas import PermissionsBase, PermissionsCreate
+from app.schemas.permissionsSchema import PermissionsBase, PermissionsCreate
 
 
 async def create_permissions(db: AsyncSession, permissions: PermissionsBase):

@@ -5,8 +5,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.database import database
 from datetime import timedelta
 
-from app.schemas import Token
-from app.controllers import create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
+from app.schemas.tokenSchema import Token
+from app.controllers.tokenController import create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES
 from app.models.userModel import User
 from app.models.userProfileModel import UserProfile
 from sqlalchemy.future import select

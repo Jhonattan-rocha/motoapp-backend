@@ -7,7 +7,7 @@ from sqlalchemy.orm import joinedload
 from app.models.userModel import User
 from app.models.eventsModel import Events
 from app.models.userProfileModel import UserProfile
-from app.schemas import UserBase, UserCreate
+from app.schemas.userSchema import UserBase, UserCreate
 from app.utils import gen_random_string, apply_filters_dynamic
 import hashlib
 

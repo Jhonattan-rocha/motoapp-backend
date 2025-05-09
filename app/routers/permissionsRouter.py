@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.controllers import permissonsController as permissons_controller
 from app.database import database
 from app.schemas import permissionsSchema
-from app.controllers import verify_token
+from app.controllers.tokenController import verify_token
 
 router = APIRouter(prefix="/crud")
 

@@ -1,13 +1,12 @@
 from pydantic import BaseModel
 from typing import Optional, List
-from app.schemas.carsSchema import Task
+from app.schemas.carsSchema import Car
 
 class EventBase(BaseModel):
     name: str
     desc: str
     date: str
     user_id: int
-    private: Optional[bool] = False
 
 class EventCreate(EventBase):
     id: int
@@ -15,7 +14,7 @@ class EventCreate(EventBase):
 
 class Event(EventBase):
     id: int
-    tasks: Optional[List[Task]]
+    car: Optional[Car]
 
     class Config:
         from_attributes = True

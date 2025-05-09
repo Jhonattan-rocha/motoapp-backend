@@ -7,7 +7,7 @@ from sqlalchemy.orm import joinedload
 from app.models.logModel import Logger
 from app.models.userModel import User
 from app.models.userProfileModel import UserProfile
-from app.schemas import LoggerBase, LoggerCreate
+from app.schemas.logSchema import LoggerBase, LoggerCreate
 from app.utils import apply_filters_dynamic
 
 async def create_log(db: AsyncSession, log: LoggerBase):

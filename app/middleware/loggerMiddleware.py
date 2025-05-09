@@ -3,9 +3,10 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi import Request, HTTPException, status
 import jwt
 from app.database import SessionLocal
-from app.controllers import get_user, create_log
-from app.controllers import SECRET_KEY, ALGORITHM
-from app.schemas import LoggerBase
+from app.controllers.userController import get_user
+from app.controllers.logController import create_log
+from app.controllers.tokenController import SECRET_KEY, ALGORITHM
+from app.schemas.logSchema import LoggerBase
 import datetime
 import os
 
