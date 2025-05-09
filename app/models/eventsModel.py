@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
+from sqlalchemy import Column, DateTime, Integer, String, ForeignKey, Boolean, func
 from sqlalchemy.orm import relationship
 from app.database import Base
 from datetime import datetime
@@ -14,3 +14,6 @@ class Events(Base):
     car_id = Column(Integer, ForeignKey("cars.id"), nullable=True)
 
     cars = relationship("Cars", cascade="all, delete")
+    user = relationship("User", back_populates="events", cascade="all, delete")
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

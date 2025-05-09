@@ -16,7 +16,9 @@ class LoggerCreate(LoggerBase):
 class Logger(LoggerBase):
     id: int
     user: Optional[User]
-        
+    created_at: datetime.datetime
+    updated_at: datetime.datetime
+
     class Config:
         from_attributes = True
         arbitrary_types_allowed = True

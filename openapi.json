@@ -1687,10 +1687,6 @@
                         "type": "string",
                         "title": "Name"
                     },
-                    "model": {
-                        "type": "string",
-                        "title": "Model"
-                    },
                     "id": {
                         "type": "integer",
                         "title": "Id"
@@ -1709,7 +1705,6 @@
                 "type": "object",
                 "required": [
                     "name",
-                    "model",
                     "id",
                     "created_at",
                     "updated_at"
@@ -1721,16 +1716,11 @@
                     "name": {
                         "type": "string",
                         "title": "Name"
-                    },
-                    "model": {
-                        "type": "string",
-                        "title": "Model"
                     }
                 },
                 "type": "object",
                 "required": [
-                    "name",
-                    "model"
+                    "name"
                 ],
                 "title": "CarBase"
             },
@@ -1740,10 +1730,6 @@
                         "type": "string",
                         "title": "Name"
                     },
-                    "model": {
-                        "type": "string",
-                        "title": "Model"
-                    },
                     "id": {
                         "type": "integer",
                         "title": "Id"
@@ -1752,7 +1738,6 @@
                 "type": "object",
                 "required": [
                     "name",
-                    "model",
                     "id"
                 ],
                 "title": "CarCreate"
@@ -1775,11 +1760,15 @@
                         "type": "integer",
                         "title": "User Id"
                     },
+                    "car_id": {
+                        "type": "integer",
+                        "title": "Car Id"
+                    },
                     "id": {
                         "type": "integer",
                         "title": "Id"
                     },
-                    "car": {
+                    "cars": {
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/Car"
@@ -1788,6 +1777,26 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "user": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
                     }
                 },
                 "type": "object",
@@ -1796,8 +1805,12 @@
                     "desc",
                     "date",
                     "user_id",
+                    "car_id",
                     "id",
-                    "car"
+                    "cars",
+                    "user",
+                    "created_at",
+                    "updated_at"
                 ],
                 "title": "Event"
             },
@@ -1818,6 +1831,10 @@
                     "user_id": {
                         "type": "integer",
                         "title": "User Id"
+                    },
+                    "car_id": {
+                        "type": "integer",
+                        "title": "Car Id"
                     }
                 },
                 "type": "object",
@@ -1825,7 +1842,8 @@
                     "name",
                     "desc",
                     "date",
-                    "user_id"
+                    "user_id",
+                    "car_id"
                 ],
                 "title": "EventBase"
             },
@@ -1847,6 +1865,10 @@
                         "type": "integer",
                         "title": "User Id"
                     },
+                    "car_id": {
+                        "type": "integer",
+                        "title": "Car Id"
+                    },
                     "id": {
                         "type": "integer",
                         "title": "Id"
@@ -1858,6 +1880,7 @@
                     "desc",
                     "date",
                     "user_id",
+                    "car_id",
                     "id"
                 ],
                 "title": "EventCreate"
@@ -1916,6 +1939,16 @@
                     "id": {
                         "type": "integer",
                         "title": "Id"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
                     }
                 },
                 "type": "object",
@@ -1924,7 +1957,9 @@
                     "originalname",
                     "content_type",
                     "file_path",
-                    "id"
+                    "id",
+                    "created_at",
+                    "updated_at"
                 ],
                 "title": "FileResponse"
             },
@@ -1954,7 +1989,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-05-09T18:46:11.506826"
+                        "default": "2025-05-09T19:44:27.223331"
                     },
                     "action": {
                         "type": "string",
@@ -1973,6 +2008,16 @@
                                 "type": "null"
                             }
                         ]
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
                     }
                 },
                 "type": "object",
@@ -1981,7 +2026,9 @@
                     "entity",
                     "action",
                     "id",
-                    "user"
+                    "user",
+                    "created_at",
+                    "updated_at"
                 ],
                 "title": "Logger"
             },
@@ -1998,7 +2045,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-05-09T18:46:11.506826"
+                        "default": "2025-05-09T19:44:27.223331"
                     },
                     "action": {
                         "type": "string",
@@ -2026,7 +2073,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-05-09T18:46:11.506826"
+                        "default": "2025-05-09T19:44:27.223331"
                     },
                     "action": {
                         "type": "string",
@@ -2075,6 +2122,16 @@
                     "id": {
                         "type": "integer",
                         "title": "Id"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
                     }
                 },
                 "type": "object",
@@ -2085,7 +2142,9 @@
                     "can_update",
                     "can_create",
                     "profile_id",
-                    "id"
+                    "id",
+                    "created_at",
+                    "updated_at"
                 ],
                 "title": "Permissions"
             },
@@ -2229,19 +2288,15 @@
                             }
                         ]
                     },
-                    "events": {
-                        "items": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/components/schemas/Event"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "type": "array",
-                        "title": "Events"
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
                     }
                 },
                 "type": "object",
@@ -2250,7 +2305,8 @@
                     "email",
                     "id",
                     "profile",
-                    "events"
+                    "created_at",
+                    "updated_at"
                 ],
                 "title": "User"
             },
@@ -2389,12 +2445,24 @@
                         "type": "array",
                         "title": "Permissions",
                         "default": []
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Created At"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "title": "Updated At"
                     }
                 },
                 "type": "object",
                 "required": [
                     "name",
-                    "id"
+                    "id",
+                    "created_at",
+                    "updated_at"
                 ],
                 "title": "UserProfile"
             },

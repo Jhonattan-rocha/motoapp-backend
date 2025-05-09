@@ -1,6 +1,8 @@
+from datetime import datetime
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional
 from app.schemas.carsSchema import Car
+from app.schemas.userSchema import User
 
 class EventBase(BaseModel):
     name: str
@@ -15,7 +17,10 @@ class EventCreate(EventBase):
 
 class Event(EventBase):
     id: int
-    car: Optional[Car]
+    cars: Optional["Car"]
+    user: Optional["User"]
+    created_at: datetime
+    updated_at: datetime
 
     class Config:
         from_attributes = True

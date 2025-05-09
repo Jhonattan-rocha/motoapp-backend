@@ -1,3 +1,4 @@
+from datetime import datetime
 from pydantic import BaseModel
 
 class FileBase(BaseModel):
@@ -11,6 +12,8 @@ class FileCreate(FileBase):
 
 class FileResponse(FileBase):
     id: int
+    created_at: datetime
+    updated_at: datetime
 
     class Config:
         from_attributes = True

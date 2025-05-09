@@ -1,8 +1,8 @@
+from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from app.schemas.userProfileSchema import UserProfile
-from app.schemas.eventsSchema import Event
-
+ 
 class UserBase(BaseModel):
     name: str
     email: str
@@ -20,8 +20,9 @@ class User(UserBase):
     password: Optional[str] = Field(exclude=True)
     salt: Optional[str] = Field(exclude=True)
     profile: Optional["UserProfile"]
-    events: List[Optional["Event"]]
-    
+    created_at: datetime
+    updated_at: datetime
+
     class Config:
         from_attributes = True
         arbitrary_types_allowed = True

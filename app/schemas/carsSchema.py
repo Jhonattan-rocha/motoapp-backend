@@ -3,12 +3,9 @@ from datetime import datetime
 
 class CarBase(BaseModel):
     name: str
-    model: str
-
 
 class CarCreate(CarBase):
     id: int
-
 
 class Car(CarBase):
     id: int
