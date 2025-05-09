@@ -10,6 +10,7 @@ class Events(Base):
     name = Column(String(255), default="")
     date = Column(String, default=str(datetime.now()))
     desc = Column(String, default="")
+    closed = Column(Boolean, default=False)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     car_id = Column(Integer, ForeignKey("cars.id"), nullable=True)
 
