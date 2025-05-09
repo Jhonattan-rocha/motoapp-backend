@@ -31,7 +31,7 @@ async def get_users(db: AsyncSession, skip: int = 0, limit: int = 10, filters: O
         query = apply_filters_dynamic(query, filters, model)
     result = await db.execute(
         query
-        .options(joinedload(User.profile).joinedload(UserProfile.permissions), joinedload(User.events))
+        .options(joinedload(User.profile).joinedload(UserProfile.permissions))
         .offset(skip)
         .limit(limit if limit > 0 else None)
     )
@@ -41,7 +41,7 @@ async def get_users(db: AsyncSession, skip: int = 0, limit: int = 10, filters: O
 async def get_user(db: AsyncSession, user_id: int):
     result = await db.execute(
         select(User)
-        .options(joinedload(User.profile).joinedload(UserProfile.permissions), joinedload(User.events))
+        .options(joinedload(User.profile).joinedload(UserProfile.permissions))
         .where(User.id == user_id)
     )
     user = result.scalars().unique().first()
