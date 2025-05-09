@@ -11,5 +11,6 @@ class Events(Base):
     date = Column(String, default=str(datetime.now()))
     desc = Column(String, default="")
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    car_id = Column(Integer, ForeignKey("cars.id"), nullable=True)
 
     cars = relationship("Cars", cascade="all, delete")

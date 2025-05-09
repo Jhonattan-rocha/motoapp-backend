@@ -7,6 +7,7 @@ class EventBase(BaseModel):
     desc: str
     date: str
     user_id: int
+    car_id: int
 
 class EventCreate(EventBase):
     id: int
