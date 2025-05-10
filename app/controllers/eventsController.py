@@ -2,14 +2,40 @@ from typing import Optional, List
 
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select, and_, or_
 from sqlalchemy.future import select
 from sqlalchemy.orm import joinedload
 from app.models.eventsModel import Events
 from app.schemas.eventsSchema import EventBase, EventCreate
 from app.utils import apply_filters_dynamic
-
+from fastapi import HTTPException
 
 async def create_event(db: AsyncSession, event: EventBase):
+    # Verifica conflitos de datas com eventos abertos
+    stmt = select(Events).where(
+        Events.closed == False,
+        or_(
+            and_(
+                event.date_init <= Events.date_final,
+                event.date_final >= Events.date_init
+            ),
+            and_(
+                event.date_final >= Events.date_init,
+                event.date_init <= Events.date_final
+            )
+        )
+    )
+
+    result = await db.execute(stmt)
+    conflicting_event = result.scalars().first()
+
+    if conflicting_event:
+        raise HTTPException(
+            status_code=409,
+            detail="Já existe um evento em aberto que conflita com as datas informadas."
+        )
+
+    # Cria o evento se não houver conflito
     db_event = Events(**event.model_dump(exclude_none=True))
     db.add(db_event)
     await db.commit()

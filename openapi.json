@@ -1752,9 +1752,13 @@
                         "type": "string",
                         "title": "Desc"
                     },
-                    "date": {
+                    "date_init": {
                         "type": "string",
-                        "title": "Date"
+                        "title": "Date Init"
+                    },
+                    "date_final": {
+                        "type": "string",
+                        "title": "Date Final"
                     },
                     "user_id": {
                         "type": "integer",
@@ -1763,6 +1767,10 @@
                     "car_id": {
                         "type": "integer",
                         "title": "Car Id"
+                    },
+                    "closed": {
+                        "type": "boolean",
+                        "title": "Closed"
                     },
                     "id": {
                         "type": "integer",
@@ -1803,9 +1811,11 @@
                 "required": [
                     "name",
                     "desc",
-                    "date",
+                    "date_init",
+                    "date_final",
                     "user_id",
                     "car_id",
+                    "closed",
                     "id",
                     "cars",
                     "user",
@@ -1824,9 +1834,13 @@
                         "type": "string",
                         "title": "Desc"
                     },
-                    "date": {
+                    "date_init": {
                         "type": "string",
-                        "title": "Date"
+                        "title": "Date Init"
+                    },
+                    "date_final": {
+                        "type": "string",
+                        "title": "Date Final"
                     },
                     "user_id": {
                         "type": "integer",
@@ -1835,15 +1849,21 @@
                     "car_id": {
                         "type": "integer",
                         "title": "Car Id"
+                    },
+                    "closed": {
+                        "type": "boolean",
+                        "title": "Closed"
                     }
                 },
                 "type": "object",
                 "required": [
                     "name",
                     "desc",
-                    "date",
+                    "date_init",
+                    "date_final",
                     "user_id",
-                    "car_id"
+                    "car_id",
+                    "closed"
                 ],
                 "title": "EventBase"
             },
@@ -1857,9 +1877,13 @@
                         "type": "string",
                         "title": "Desc"
                     },
-                    "date": {
+                    "date_init": {
                         "type": "string",
-                        "title": "Date"
+                        "title": "Date Init"
+                    },
+                    "date_final": {
+                        "type": "string",
+                        "title": "Date Final"
                     },
                     "user_id": {
                         "type": "integer",
@@ -1868,6 +1892,10 @@
                     "car_id": {
                         "type": "integer",
                         "title": "Car Id"
+                    },
+                    "closed": {
+                        "type": "boolean",
+                        "title": "Closed"
                     },
                     "id": {
                         "type": "integer",
@@ -1878,9 +1906,11 @@
                 "required": [
                     "name",
                     "desc",
-                    "date",
+                    "date_init",
+                    "date_final",
                     "user_id",
                     "car_id",
+                    "closed",
                     "id"
                 ],
                 "title": "EventCreate"
@@ -1989,7 +2019,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-05-09T20:07:49.896106"
+                        "default": "2025-05-10T14:26:58.699941"
                     },
                     "action": {
                         "type": "string",
@@ -2045,7 +2075,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-05-09T20:07:49.896106"
+                        "default": "2025-05-10T14:26:58.699941"
                     },
                     "action": {
                         "type": "string",
@@ -2073,7 +2103,7 @@
                     "data": {
                         "type": "string",
                         "title": "Data",
-                        "default": "2025-05-09T20:07:49.896106"
+                        "default": "2025-05-10T14:26:58.699941"
                     },
                     "action": {
                         "type": "string",

@@ -7,9 +7,11 @@ from app.schemas.userSchema import User
 class EventBase(BaseModel):
     name: str
     desc: str
-    date: str
+    date_init: str
+    date_final: str
     user_id: int
     car_id: int
+    closed: bool
 
 class EventCreate(EventBase):
     id: int
